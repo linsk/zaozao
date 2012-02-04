@@ -1,0 +1,98 @@
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+link
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid
+Mon Jun 06 11:24:51 +0800 2011: Read error: #<RegexpError: unmatched ): /^\/qjnoÐÂ\272ó×º(;[^\?]+)/>
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:54:in `process'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+/usr/local/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+/usr/local/ruby/bin/mongrel_rails:19:in `load'
+/usr/local/ruby/bin/mongrel_rails:19
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.5002.pid and log/mongrel.5002.log for info.
+** Starting Mongrel listening at 0.0.0.0:5002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 0.0.0.0:5002
+** Writing PID file to tmp/pids/mongrel.5002.pid

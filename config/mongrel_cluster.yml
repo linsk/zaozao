@@ -1,0 +1,6 @@
+--- 
+log_file: log/mongrel.log
+port: "5000"
+environment: development
+pid_file: tmp/pids/mongrel.pid
+servers: 3

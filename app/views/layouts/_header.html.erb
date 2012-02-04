@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head><meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title><%if !@title %>Zaozao.net - 早早知道互联网,由你决定头条新闻<%else%><%=h @title %><%end%></title>
+<%= stylesheet_link_tag 'style' %>
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script> 
+<script type="text/javascript"> 
+
+		$(window).scroll(function () { 
+			if($(document).scrollTop()<500){
+	     	 	$("#uptotop").fadeOut("slow");
+	     	 }else{
+	     	 	$("#uptotop").fadeIn("slow");
+	     	 }
+	    });
+	    $(function(){
+		    $("li").hover(
+		    function() { $(this).find('div.sub_menu').show(); },
+		    function() { $(this).find('div.sub_menu').hide(); }
+			);
+			
+			$('#ihatethissite').click(function() {
+			  $("div").slideUp();
+			});
+			
+			$("#post_link").click(function(e){
+			  $("#post_link").attr("href",'/content/post');
+				
+			}); 
+			$("#showpostbtn").hover(
+			  function () {
+ 				$(this).append($("<div id='showpostbox'></div>"));
+			   
+			  }, 
+			  function () {
+				$(this).find("div").remove();
+			  }
+			);
+		});
+	    
+		function close_by_id(i) {
+			var a = $("#"+i);
+			a.hide();	
+		}
+		function close_by_class(i) {
+			var a = $("."+i);
+			a.hide();	
+		}
+		function voteone(type,cid,num){
+			$.ajax({
+			   type: "POST",
+			   url: "/ajax/voteone",
+			   data: "cid="+cid+"&authenticity_token=<%= form_authenticity_token %>&type="+type+"&num="+num,
+			   dataType: "json",
+			   success: function(obj){
+			     if(obj.error){
+					amsg(obj.error,"error");	
+			     }else if(obj.success){
+					$("#vote_"+type+"_"+cid).text(obj.success);
+					$("#vote_"+type+"_"+cid).css("background-color","#eeeeee");
+			     }
+			   }
+			});
+		}
+		function delone(type,cid){
+			confirm("你确信要删除？")
+			$.ajax({
+			   type: "POST",
+			   url: "/ajax/delone",
+			   data: "cid="+cid+"&authenticity_token=<%= form_authenticity_token %>&type="+type,
+			   dataType: "json",
+			   success: function(obj){
+			     if(obj.error){
+					amsg(obj.error,"error");	
+			     }else if(obj.success){
+					var d = $("#"+type+"_"+cid);
+					d.find(".title").text("自删");
+					
+			     }
+			   }
+			});
+		}
+		function replyto(cid,faid){
+			var b = $("#ipbox_"+faid);
+			var s = '<p class="inputbox"><textarea id="reply_text_'+faid+'" class="reply" name="reply"></textarea><br/><input name="commit" onclick="reply('+cid+','+faid+');" class="reply" type="submit" value="提交评论"> <input name="commit" class="reply" type="submit" href="javascript:void(0)" onclick="close_by_id(\'ipbox_'+faid+'\')" value="X"></p>';
+			b.html(s);
+			b.show();
+		}
+		function reply(cid,faid){
+			
+			$.ajax({
+			   type: "POST",
+			   url: "/ajax/reply",
+			   data: "cid="+cid+"&authenticity_token=<%= form_authenticity_token %>&faid="+faid+"&message="+$('#reply_text_'+faid).val(),
+			   dataType: "json",
+			   success: function(obj){
+			     if(obj.error){
+					amsg(obj.error,"error");	
+			     }else if(obj.success){
+			     	var s = '<div class="level"><div class="zao" id="reply_'+obj.reid+'"><div class="r_t"><div class="r_l"><a href="javascript:void(0)" id="vote_reply_'+obj.reid+'" onClick="addone(\'reply\','+obj.reid+')" class="vote">+'+obj.vote+'</a></div><div class="c_r"><p class="title">'+obj.message+'</a></p><p class="subtitle"><a href="#" onclick="replyto('+obj.cid+','+obj.reid+');">回复</a> | <a href="/content/from/'+obj.name+'">'+obj.name+'</a> 投递于 '+obj.time+' </p><div id="ipbox_'+obj.reid+'"></div></div></div></div><div class="clear"></div></div>';
+					if(faid==0){
+						$("#replypan").prepend(s);
+					}else{
+						$("#reply_"+faid).after(s);
+					}
+				}
+				}
+			});
+		}
+		function share(id,link,title){
+			
+			var b = $("#cbox_"+id);
+			var s = '<p class="sharebox">到:  <a href="http://service.t.sina.com.cn/share/share.php?url='+encodeURI(link)+'&source=bookmark&title='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >新浪微博</span></a> | <a href="http://share.renren.com/share/buttonshare.do?link='+encodeURI(link)+'&title='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >人人</span></a> |  <a href="http://www.kaixin001.com/repaste/bshare.php?rurl='+encodeURI(link)+'&rtitle='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >开心网</span></a> |  <a href="http://www.douban.com/recommend/?url='+encodeURI(link)+'&title='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >豆瓣</span></a> | <a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURI(link)+'&title='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >QQ空间</span></a> | <a href="http://pengyou.qq.com/index.php?mod=usershare&act=onekey&to=xiaoyou&url='+encodeURI(link)+'&title='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >腾讯朋友</span></a> | <a href="http://v.t.qq.com/share/share.php?url='+encodeURI(link)+'&title='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >腾讯微博</span></a> | <a href="http://fanfou.com/sharer?u='+encodeURI(link)+'&t='+encodeURI(title)+'" target="_blank" style="background-position: 0px -768px; "><span >饭否</span></a> <a style="margin-left:5px;" href="javascript:void(0)" onclick="close_by_id(\'cbox_'+id+'\')"> X </a></p>';
+			b.html(s);
+			b.show();
+			
+		}
+		function amsg(s,t){
+			var ab =$("#ajaxbox");
+			ab.html('<div class="status '+t+'"><p class="closestatus"><a href="#" onclick="close_by_class(\'status\')" title="Close">x</a></p><p>'+s+'</p></div>');
+			ab.show();
+			setTimeout(function(){ab.hide();},3000);
+		}
+		
+</script>
+</head>
+<body>
+<div class = "uptotop" id = "uptotop"><a href="#">上↑</a></div>
+<div id = "ajaxbox" ></div>
+<%= flash[:notice] %>
+<div id="container">
+	
+	<div id="navigation">
+		<ul class="left">
+					
+			<li><a href="/" class="<%=h @actived['home'] %>"><div class="logo"></div></a></li>
+			<li><a href="/content/last" class="<%=h @actived['last'] %>">稿件箱</a> </li>
+			<li><a id="post_link" href='javascript:window.location="http://zaozao.net/post?u="+encodeURIComponent(document.location)+"&t="+encodeURIComponent(document.title)'  class="<%=h @actived['post'] %>">投递<span id="showpostbtn"> + </span></a> </li>
+			
+			
+			<%if @actived['reply'] %>
+			<li><a href="#" class="<%=h @actived['reply'] %>">评论</a></li>
+			<%end %>
+			
+			<%if @actived['from'] %>
+			<li><a href="#" class="<%=h @actived['from'] %>"><%=h @account.username %>的投递</a></li>
+			<%end %>
+			
+			<%if @actived['domain'] %>
+			<li><a href="#" class="<%=h @actived['domain'] %>"><%=h @link_t %>上的投递</a></li>
+			<%end %>
+			
+			<%if @actived['account'] %>
+			<li><a href="#" class="<%=h @actived['account'] %>">账户管理</a></li>
+			<%end %>
+		
+		</ul>
+		<ul class="right">
+			
+			<% if session[:user_id] %>
+			<li><a href="/account/logout" >登出</a></li>
+			<li class="fa"><a href="#" ><%= session[:user_name] %>▼</a>
+				<div class="sub_menu" id="account_menu" style="display: none; ">
+						
+				<a href="/content/from/<%= session[:user_name] %>">我的投递</a><br/>
+				<a href="/account/setpassword">重设密码</a>
+				</div>
+			</li>		
+			<li><a href="/invite" class="<%=h @actived['invite'] %>">邀请</a></li>
+			
+			<% else %>
+			<li><a href="/account/register" class="<%= @actived["register"] %>">注册</a> </li>	
+			<% if false %>
+			<li><a href="/account/register" <% if @actived["register"] %> class="<%= @actived["register"] %>" <%else%>onclick="alert('早早是基于邀请的社区');return false;"  class="del"<%end%> >注册</a> </li>
+			<% end %>
+			<li><a href="/account/login" class="<%=h @actived['login'] %>">登录</a> </li>
+			<% end %>
+		</ul>
+	</div>
+	<div id="content">

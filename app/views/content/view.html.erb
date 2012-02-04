@@ -1,0 +1,9 @@
+<div class="zao">
+<div class="r_l"><span class="votebox"> <a href="javascript:void(0)" onClick="voteone('post',<%=h @post.id%>,'add')" class="vote">▲</a><a href="javascript:void(0)"  onClick="voteone('post',<%=h @post.id%>,'sub')" class="vote">▼</a> </span></div><div class="c_r"><p><a target="_blank" href="<%=h @post.link%>" class="title"><%=h @post.title%></a><a  href="#" class="link"><%=h @post.link_t%></a></p><p class="subtitle"><a href="/content/view/<%=h @post.id%>"><%if @post.reply!=0%><%=h @post.reply%>个<%end%>评论</a> | 得<span id="vote_post_<%=h @post.id%>"><%=h @post.vote%></span>分 | <a href="/content/from/<%=h @post.username%>"><%=h @post.username%></a> 投递于 <%=h time_ago(@post.created_at)%> </p>
+<% if @post.text%><p><%= @post.text%></p><% end %>
+<%= render "layouts/reply"%> 
+</div>		
+</div>
+
+<div class="clear"></div>
+

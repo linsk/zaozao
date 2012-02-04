@@ -1,0 +1,25 @@
+<% form_for@account,:url=>{:controller=>:account,:action=>:register} do |f| %>	
+	<div class="form">		
+		<h1>新用户注册</h1>
+		<%= error_messages_for :account %>
+	
+		  <p>
+		    <span>用户名</span><br />
+		    <%= f.text_field :username %>
+		  </p>
+		
+		  <p>
+		    <span>密码</span><br />
+		    <%= f.password_field :password %>
+		  </p>
+		
+		  <p>
+		  <span>Email[可选]<span><br />
+		    <%= f.text_field :email %>
+		  </p>
+		 	<input type="hidden" name="code" value="<%=h @code%>" />
+			<%= submit_tag "创建新用户" %>
+		
+		<div class="clear"></div>
+	</div>
+<% end %>

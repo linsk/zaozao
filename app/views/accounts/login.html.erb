@@ -1,0 +1,10 @@
+<% form_tag do %>
+	<div id="login">		
+		<h1>登录</h1>
+		<label for="password">密码:</label><br/>
+		<%= password_field_tag :password, params[:password]%><br/>
+		<%= flash[:notice] %><br/>
+		<%= submit_tag "提交" %>
+		<div class="clear"></div>
+	</div>
+<% end %>

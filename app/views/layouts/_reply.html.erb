@@ -1,0 +1,11 @@
+<div class="replybox">
+	<p class="inputbox">
+			
+		    <textarea id="reply_text_0" class="reply" name="reply"></textarea><br/>	   
+		    <input name="commit" onclick="reply(<%=h @post.id%>,0);" class="reply" type="submit" value="提交评论">
+		    	   
+	</p> 
+	<div id="replypan"> </div>
+	<%= @body %>                                                         
+	
+</div>

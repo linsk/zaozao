@@ -1,0 +1,15 @@
+<% i=@page*30+1 %>
+<% for post in @posts %>
+
+		<div class="zao" id="post_<%=h post.id%>">
+		<div class="c_l">
+<span class="num"><%=i%></span> <span class="votebox"> <a href="javascript:void(0)"  onClick="voteone('post',<%=h post.id%>,'add')" class="vote">▲</a><a href="javascript:void(0)"  onClick="voteone('post',<%=h post.id%>,'sub')" class="vote">▼</a> </span> </div><div class="c_r"><p><a href="<%=h post.link%>" target="_blank"  class="title"><%=h post.title%></a><a href="/content/domain/<%=h post.link_t.to_s.tr('.', '_')%>" class="link"><%=h post.link_t%></a></p><p class="subtitle"><a href="/content/view/<%=h post.id%>"><%if post.reply!=0%><%=h post.reply%>个<%end%>评论</a> | <a href="javascript:void(0)" onclick="share(<%=h post.id%>,'http://zaozao.net/v/<%=h post.id%>','<%=h post.title%>')">分享</a> | 得<span id="vote_post_<%=h post.id%>"><%=h post.vote%></span>分 | <a href="/content/from/<%=h post.username%>"><%=h post.username%></a>投递于<%=h time_ago(post.created_at)%> <%if @logined == 1%>| <a href="javascript:void(0);" onclick="delone('post',<%=h post.id%>)">删除</a><%end%> </p>
+		<div id="cbox_<%=h post.id%>"></div>
+		</div>		
+		</div>
+
+		<div class="clear"></div>
+<% i=i+1 %>		
+<% end %>
+
+<div id="page"><% if @page !=0 %><a id="prev_page" href="?page=<%=@page-1 %>">上一页</a> / <a id="next_page" href="?page=<%=@page+1 %>">下一页</a><%else%><a id="next_page" href="?page=<%=@page+1 %>">阅读更多+</a><%end%></div>

@@ -1,0 +1,22 @@
+<h1>早早的蛋</h1>
+
+		<p>
+		    <span>您目前有<%=@invite_count %>个蛋,请注意查收</span><br />
+		    
+		    <% if @invite_f %>
+		    <input class="link"  onclick="select();" value="http://zaozao.net/invite/code/<%=h @invite_f.code%>" id="link" name="link" type="text"><br/>
+		    <% end  %>
+		    <% for invite in @invites %>
+		    <input class="link"  onclick="select();" value="http://zaozao.net/invite/code/<%=h invite.code%>" id="link" name="link" type="text"><br/>
+		    <% end %>
+		   
+		    <% if @invite_count < 20%>
+		    <div class="meter-wrap">
+			    <div class="meter-value" style="background-color: #88AC6E; width: <%=@percent %>%;">
+			        <div class="meter-text"></div>
+			    </div>
+			</div>
+			<% end %>
+		</p>
+
+<br />

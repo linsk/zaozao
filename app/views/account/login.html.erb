@@ -1,0 +1,16 @@
+<% form_tag do %>
+	<div class="form">		
+		<h1>登录</h1>
+		<p>
+		    <span>用户名</span><br />
+		    <%= text_field_tag :username, params[:username]%><br/>
+		</p>
+		<p>
+		    <span>密码</span><br />
+		    <%= password_field_tag :password, params[:password]%><br/>
+		</p>
+		
+		<%= submit_tag "提交" %>
+		<div class="clear"></div>
+	</div>
+<% end %>

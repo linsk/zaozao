@@ -1,0 +1,24 @@
+<h1>创建Zaozao帐号</h1>
+
+<%= error_messages_for :account %>
+
+<% form_for(@account) do |f| %>
+  <p>
+    <b>用户名</b><br />
+    <%= f.text_field :username %>
+  </p>
+
+  <p>
+    <b>密码</b><br />
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <b>Email</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.submit "创建帐号" %>
+  </p>
+<% end %>

@@ -1,0 +1,60 @@
+
+		<div class="form">
+		<h1>投递新闻</h1> 
+		<p>
+		    <span>标题<span class="buttons"><span id="linkbtn" class="left active">链接</span><span id="textbtn" class="right">文本</span></span></span><br />
+		    <div id="formlink">
+		    <% form_tag do%>
+		   <%- if @basetitle -%>
+		    <%= text_area_tag :title, @basetitle ,:class => "text"%><br/>
+		   <%- elsif -%>
+		    <%= text_area_tag :title, params[:title],:class => "text"%><br/>
+		   <% end %>
+		</p>
+		<p >
+		    <span>链接</span><br />
+		    <%- if @baseurl -%>
+		     <input class="link" value="<%=h @baseurl %>" id="link" name="link" type="text"><br/>
+		   <%- elsif -%>
+		     <input class="link" value="http://" id="link" name="link" type="text"><br/>
+		   <%- end -%>
+		   
+		</p>
+			<input value="link" name="type" type="hidden">
+			<%= submit_tag "提交" %>
+			<% end %>
+			</div>
+			<div id="formtext" style="display:none">
+		    <% form_tag do%>
+		    <%= text_area_tag :title, params[:title],:class => "text"%><br/>
+		</p>
+		<p >
+		    <span>文本</span><br />
+		     <%= text_area_tag :text, params[:text],:class => "content"%><br/>
+		</p>
+			<input value="text" name="type" type="hidden">
+			<%= submit_tag "提交" %>
+			<% end %>
+			</div>
+		<div class="clear"></div>
+		</div>
+
+<script type="text/javascript"> 
+
+	    $(function(){
+		    $("#textbtn").click(
+		    function() {		    	
+		    	 $("#formlink").hide(); 
+		    	 $("#formtext").show(); 
+		    	 $(this).addClass("active");
+		    	 $("#linkbtn").removeClass("active");
+		    });
+		    $("#linkbtn").click(
+		    function() {
+		    	$("#formtext").hide();		    	
+		    	 $("#formlink").show(); 
+		    	 $("#textbtn").removeClass("active");
+		    	 $(this).addClass("active");
+		    });
+		});
+</script>
